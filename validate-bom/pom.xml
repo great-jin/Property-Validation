@@ -12,7 +12,31 @@
     <artifactId>validate-bom</artifactId>
     <packaging>pom</packaging>
 
-    <dependencyManagement>
+    <properties>
+        <jackson.version>2.17.2</jackson.version>
+        <spring-context.version>5.3.9</spring-context.version>
+        <slf4j.version>2.0.7</slf4j.version>
+    </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-context.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 </project>

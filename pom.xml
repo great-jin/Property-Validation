@@ -15,6 +15,7 @@
         <module>validate-common</module>
         <module>validate-core</module>
         <module>validate-spring</module>
+        <module>validate-test</module>
     </modules>
 
     <properties>
