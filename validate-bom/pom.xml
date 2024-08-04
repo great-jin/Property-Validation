@@ -15,6 +15,7 @@
     <properties>
         <jackson.version>2.17.2</jackson.version>
         <spring-context.version>5.3.9</spring-context.version>
+        <spring.version>2.6.6</spring.version>
         <slf4j.version>2.0.7</slf4j.version>
     </properties>
 
@@ -25,10 +26,25 @@
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
+
+            <!-- EL expression -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring-context.version}</version>
+            </dependency>
+            <!-- Spring Boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring.version}</version>
+                <scope>provided</scope>
             </dependency>
 
             <dependency>
