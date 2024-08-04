@@ -115,3 +115,40 @@ public class MyTest {
     }
 }
 ```
+
+### Exception log
+The validation provide the ability to print target value when validate failed. 
+
+Also, for sensitive field that you can declare with annotation with `@Sensitive`.
+
+Notice: This is function by `Jackson`, compare to simply print message this may cost some efficiency.
+
+Here is simple example:
+```java
+@JsonFilter(ValidateConst.FILTER_SENSITIVE)
+public class User {
+
+    @NotBlank
+    private String username;
+    
+    @Sensitive
+    @NotBlank
+    private String password;
+}
+```
+
+```java
+public class MyTest {
+    @Test
+    public void demo() throws Exception {
+        User user = new User();
+        user.setUsername("Alex");
+        FieldValidate.validate(user, true);
+    }
+}
+```
+
+And here is exception message, as you can see that the field of `password` didn't printed.
+```txt
+xyz.ibudai.validate.common.exception.ValidateException: The field of {password} can't be blank, Object: {"username":"Alex"}
+```
