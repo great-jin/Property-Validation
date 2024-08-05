@@ -16,4 +16,14 @@ public class ValidateDetector {
         int group = annotation.group();
         FieldValidate.validate(t, group);
     }
+
+    public static <T> void detect(T t, Parameter parameter, boolean serialize) throws Exception {
+        if (!parameter.isAnnotationPresent(Validate.class)) {
+            return;
+        }
+
+        Validate annotation = parameter.getAnnotation(Validate.class);
+        int group = annotation.group();
+        FieldValidate.validate(t, group, serialize);
+    }
 }

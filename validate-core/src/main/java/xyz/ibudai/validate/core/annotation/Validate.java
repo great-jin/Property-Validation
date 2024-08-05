@@ -11,4 +11,8 @@ public @interface Validate {
 
     int group() default 0;
 
+    boolean serialize() default false;
+
+    boolean skipFailed() default false;
+
 }
