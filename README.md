@@ -11,7 +11,9 @@ So that is `Property Validation` use for, to peel off the none important thing o
 `Property Validation` is friendly use for maven, you can see the module of `validate-test` for fully example.
 
 ### Basic use
-Import the below dependency in your maven pom.xml file.
+Import the below dependency in your maven `pom.xml` file.
+
+Notice that the library didn't relese to maven central yet, in order to work which need to clone the repository and run `clean install` first.
 ```xml
 <dependency>
     <groupId>xyz.ibudai</groupId>
