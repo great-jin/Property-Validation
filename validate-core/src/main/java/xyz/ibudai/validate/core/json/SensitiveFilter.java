@@ -1,4 +1,4 @@
-package xyz.ibudai.validate.core.filter;
+package xyz.ibudai.validate.core.json;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

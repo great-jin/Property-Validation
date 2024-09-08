@@ -35,9 +35,9 @@ public class ValidateTest {
     public void demo3() throws Exception {
         Teacher teacher = new Teacher();
         teacher.setId("1");
-        teacher.setName("Alex");
+        teacher.setPassword("123");
 
-        FieldValidate.validate(teacher);
+        FieldValidate.validate(teacher, true);
         System.out.println("Validate success!");
     }
 
