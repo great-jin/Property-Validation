@@ -121,7 +121,7 @@ public class MyTest {
 ### Exception log
 The validation provide the ability to print target value when validate failed. 
 
-Also, for sensitive field that you can declare with annotation with `@Sensitive`.
+Also, for sensitive field that you can declare with annotation with `@Sensitive`, or you can choose with `@Encryption` for encrypt the value.
 
 Notice: This is function by `Jackson`, compare to simply print message this may cost some efficiency.
 
@@ -139,6 +139,7 @@ public class User {
 }
 ```
 
+And trigger validate by calling `FieldValidate.validate(xxx, true)`.
 ```java
 public class MyTest {
     @Test
@@ -154,3 +155,5 @@ And here is exception message, as you can see that the field of `password` didn'
 ```txt
 xyz.ibudai.validate.common.exception.ValidateException: The field of {password} can't be blank, Object: {"username":"Alex"}
 ```
+
+The `@Encryption` provide the base64 encode, you can implement the `DataEncryption` to write you own encryption algorithm.
