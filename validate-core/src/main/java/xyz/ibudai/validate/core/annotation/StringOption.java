@@ -1,10 +1,8 @@
-package xyz.ibudai.validate.core.annotation.trigger;
-
-import xyz.ibudai.validate.core.annotation.group.StringOptionGroup;
+package xyz.ibudai.validate.core.annotation;
 
 import java.lang.annotation.*;
 
-@Repeatable(StringOptionGroup.class)
+@Repeatable(StringOption.Group.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StringOption {
@@ -19,4 +17,12 @@ public @interface StringOption {
 
     String triggered() default "true";
 
+
+    @Target({ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface Group {
+
+        StringOption[] value() default {};
+
+    }
 }

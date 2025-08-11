@@ -2,8 +2,7 @@ package xyz.ibudai.validate.core.handler.checker;
 
 import xyz.ibudai.validate.common.context.ValidateContext;
 import xyz.ibudai.validate.common.exception.ValidateException;
-import xyz.ibudai.validate.core.annotation.group.StringOptionGroup;
-import xyz.ibudai.validate.core.annotation.trigger.StringOption;
+import xyz.ibudai.validate.core.annotation.StringOption;
 import xyz.ibudai.validate.core.handler.Checker;
 import xyz.ibudai.validate.core.util.ExceptionUtils;
 import xyz.ibudai.validate.core.util.ExpressionUtils;
@@ -53,7 +52,9 @@ public class StrOptionChecker implements Checker {
         if (!String.class.isAssignableFrom(field.getType())) {
             return null;
         }
-        if (!field.isAnnotationPresent(StringOption.class) && !field.isAnnotationPresent(StringOptionGroup.class)) {
+        if (!field.isAnnotationPresent(StringOption.class)
+                && !field.isAnnotationPresent(StringOption.Group.class)
+        ) {
             return null;
         }
 

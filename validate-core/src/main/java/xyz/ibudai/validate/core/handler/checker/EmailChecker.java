@@ -2,8 +2,7 @@ package xyz.ibudai.validate.core.handler.checker;
 
 import xyz.ibudai.validate.common.context.ValidateContext;
 import xyz.ibudai.validate.common.exception.ValidateException;
-import xyz.ibudai.validate.core.annotation.group.EmailGroup;
-import xyz.ibudai.validate.core.annotation.trigger.Email;
+import xyz.ibudai.validate.core.annotation.Email;
 import xyz.ibudai.validate.core.handler.Checker;
 import xyz.ibudai.validate.core.util.ExceptionUtils;
 import xyz.ibudai.validate.core.util.ExpressionUtils;
@@ -65,7 +64,9 @@ public class EmailChecker implements Checker {
         if (!String.class.isAssignableFrom(field.getType())) {
             return null;
         }
-        if (!field.isAnnotationPresent(Email.class) && !field.isAnnotationPresent(EmailGroup.class)) {
+        if (!field.isAnnotationPresent(Email.class)
+                && !field.isAnnotationPresent(Email.Group.class)
+        ) {
             return null;
         }
 

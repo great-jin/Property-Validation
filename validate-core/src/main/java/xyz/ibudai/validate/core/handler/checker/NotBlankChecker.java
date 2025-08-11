@@ -2,8 +2,7 @@ package xyz.ibudai.validate.core.handler.checker;
 
 import xyz.ibudai.validate.common.context.ValidateContext;
 import xyz.ibudai.validate.common.exception.ValidateException;
-import xyz.ibudai.validate.core.annotation.group.NotBlankGroup;
-import xyz.ibudai.validate.core.annotation.trigger.NotBlank;
+import xyz.ibudai.validate.core.annotation.NotBlank;
 import xyz.ibudai.validate.core.handler.Checker;
 import xyz.ibudai.validate.core.util.ExceptionUtils;
 import xyz.ibudai.validate.core.util.ExpressionUtils;
@@ -39,7 +38,9 @@ public class NotBlankChecker implements Checker {
     }
 
     private NotBlank filter(Field field, int group) {
-        if (!field.isAnnotationPresent(NotBlank.class) && !field.isAnnotationPresent(NotBlankGroup.class)) {
+        if (!field.isAnnotationPresent(NotBlank.class)
+                && !field.isAnnotationPresent(NotBlank.Group.class)
+        ) {
             return null;
         }
 

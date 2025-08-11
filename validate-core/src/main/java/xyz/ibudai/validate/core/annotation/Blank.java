@@ -1,10 +1,8 @@
-package xyz.ibudai.validate.core.annotation.trigger;
-
-import xyz.ibudai.validate.core.annotation.group.BlankGroup;
+package xyz.ibudai.validate.core.annotation;
 
 import java.lang.annotation.*;
 
-@Repeatable(BlankGroup.class)
+@Repeatable(Blank.Group.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Blank {
@@ -15,4 +13,12 @@ public @interface Blank {
 
     String triggered() default "true";
 
+
+    @Target({ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface Group {
+
+        Blank[] value() default {};
+
+    }
 }

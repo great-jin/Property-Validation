@@ -2,9 +2,7 @@ package xyz.ibudai.validate.core.handler.checker;
 
 import xyz.ibudai.validate.common.context.ValidateContext;
 import xyz.ibudai.validate.common.exception.ValidateException;
-import xyz.ibudai.validate.core.annotation.group.NullGroup;
-import xyz.ibudai.validate.core.annotation.trigger.NotNull;
-import xyz.ibudai.validate.core.annotation.trigger.Null;
+import xyz.ibudai.validate.core.annotation.Null;
 import xyz.ibudai.validate.core.handler.Checker;
 import xyz.ibudai.validate.core.util.ExceptionUtils;
 import xyz.ibudai.validate.core.util.ExpressionUtils;
@@ -40,7 +38,9 @@ public class NullChecker implements Checker {
     }
 
     private Null filter(Field field, int group) {
-        if (!field.isAnnotationPresent(Null.class) && !field.isAnnotationPresent(NullGroup.class)) {
+        if (!field.isAnnotationPresent(Null.class)
+                && !field.isAnnotationPresent(Null.Group.class)
+        ) {
             return null;
         }
 

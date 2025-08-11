@@ -2,9 +2,7 @@ package xyz.ibudai.validate.core.handler.checker;
 
 import xyz.ibudai.validate.common.context.ValidateContext;
 import xyz.ibudai.validate.common.exception.ValidateException;
-import xyz.ibudai.validate.core.annotation.group.SizeGroup;
-import xyz.ibudai.validate.core.annotation.trigger.Length;
-import xyz.ibudai.validate.core.annotation.trigger.Size;
+import xyz.ibudai.validate.core.annotation.Size;
 import xyz.ibudai.validate.core.handler.Checker;
 import xyz.ibudai.validate.core.util.ExceptionUtils;
 import xyz.ibudai.validate.core.util.ExpressionUtils;
@@ -53,7 +51,9 @@ public class SizeChecker implements Checker {
         if (!Collection.class.isAssignableFrom(field.getType())) {
             return null;
         }
-        if (!field.isAnnotationPresent(Size.class) && !field.isAnnotationPresent(SizeGroup.class)) {
+        if (!field.isAnnotationPresent(Size.class)
+                && !field.isAnnotationPresent(Size.Group.class)
+        ) {
             return null;
         }
 

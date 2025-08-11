@@ -1,10 +1,8 @@
-package xyz.ibudai.validate.core.annotation.trigger;
-
-import xyz.ibudai.validate.core.annotation.group.RangeGroup;
+package xyz.ibudai.validate.core.annotation;
 
 import java.lang.annotation.*;
 
-@Repeatable(RangeGroup.class)
+@Repeatable(Range.Group.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Range {
@@ -19,4 +17,12 @@ public @interface Range {
 
     String triggered() default "true";
 
+
+    @Target({ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface Group {
+
+        Range[] value() default {};
+
+    }
 }

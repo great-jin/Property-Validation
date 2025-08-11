@@ -2,8 +2,7 @@ package xyz.ibudai.validate.core.handler.checker;
 
 import xyz.ibudai.validate.common.context.ValidateContext;
 import xyz.ibudai.validate.common.exception.ValidateException;
-import xyz.ibudai.validate.core.annotation.group.BlankGroup;
-import xyz.ibudai.validate.core.annotation.trigger.Blank;
+import xyz.ibudai.validate.core.annotation.Blank;
 import xyz.ibudai.validate.core.handler.Checker;
 import xyz.ibudai.validate.core.util.ExceptionUtils;
 import xyz.ibudai.validate.core.util.ExpressionUtils;
@@ -49,7 +48,9 @@ public class BlankChecker implements Checker {
         if (!String.class.isAssignableFrom(field.getType())) {
             return null;
         }
-        if (!field.isAnnotationPresent(Blank.class) && !field.isAnnotationPresent(BlankGroup.class)) {
+        if (!field.isAnnotationPresent(Blank.class)
+                && !field.isAnnotationPresent(Blank.Group.class)
+        ) {
             return null;
         }
 

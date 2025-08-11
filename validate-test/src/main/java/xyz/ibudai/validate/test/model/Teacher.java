@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import xyz.ibudai.validate.common.consts.ValidateConst;
 import xyz.ibudai.validate.core.annotation.json.Sensitive;
-import xyz.ibudai.validate.core.annotation.trigger.NotBlank;
+import xyz.ibudai.validate.core.annotation.NotBlank;
 
 @Data
 @NoArgsConstructor

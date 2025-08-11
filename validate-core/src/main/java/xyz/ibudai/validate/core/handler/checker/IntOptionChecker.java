@@ -2,8 +2,7 @@ package xyz.ibudai.validate.core.handler.checker;
 
 import xyz.ibudai.validate.common.context.ValidateContext;
 import xyz.ibudai.validate.common.exception.ValidateException;
-import xyz.ibudai.validate.core.annotation.group.IntOptionGroup;
-import xyz.ibudai.validate.core.annotation.trigger.IntOption;
+import xyz.ibudai.validate.core.annotation.IntOption;
 import xyz.ibudai.validate.core.handler.Checker;
 import xyz.ibudai.validate.core.util.ExceptionUtils;
 import xyz.ibudai.validate.core.util.ExpressionUtils;
@@ -50,7 +49,9 @@ public class IntOptionChecker implements Checker {
         if (!Number.class.isAssignableFrom(field.getType())) {
             return null;
         }
-        if (!field.isAnnotationPresent(IntOption.class) && !field.isAnnotationPresent(IntOptionGroup.class)) {
+        if (!field.isAnnotationPresent(IntOption.class)
+                && !field.isAnnotationPresent(IntOption.Group.class)
+        ) {
             return null;
         }
 

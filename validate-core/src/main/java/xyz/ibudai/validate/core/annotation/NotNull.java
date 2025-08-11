@@ -1,10 +1,8 @@
-package xyz.ibudai.validate.core.annotation.trigger;
-
-import xyz.ibudai.validate.core.annotation.group.NotNullGroup;
+package xyz.ibudai.validate.core.annotation;
 
 import java.lang.annotation.*;
 
-@Repeatable(NotNullGroup.class)
+@Repeatable(NotNull.Group.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NotNull {
@@ -15,4 +13,12 @@ public @interface NotNull {
 
     String triggered() default "true";
 
+
+    @Target({ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface Group {
+
+        NotNull[] value() default {};
+
+    }
 }

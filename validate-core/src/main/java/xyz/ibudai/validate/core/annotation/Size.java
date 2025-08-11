@@ -1,17 +1,15 @@
-package xyz.ibudai.validate.core.annotation.trigger;
-
-import xyz.ibudai.validate.core.annotation.group.LengthGroup;
+package xyz.ibudai.validate.core.annotation;
 
 import java.lang.annotation.*;
 
-@Repeatable(LengthGroup.class)
+@Repeatable(Size.Group.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Length {
+public @interface Size {
 
     int group() default 0;
 
-    int min() default 1;
+    int min() default 0;
 
     int max() default Integer.MAX_VALUE;
 
@@ -21,4 +19,12 @@ public @interface Length {
 
     String triggered() default "true";
 
+
+    @Target({ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface Group {
+
+        Size[] value() default {};
+
+    }
 }

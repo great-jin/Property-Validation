@@ -2,9 +2,7 @@ package xyz.ibudai.validate.core.handler.checker;
 
 import xyz.ibudai.validate.common.context.ValidateContext;
 import xyz.ibudai.validate.common.exception.ValidateException;
-import xyz.ibudai.validate.core.annotation.group.RangeGroup;
-import xyz.ibudai.validate.core.annotation.trigger.Length;
-import xyz.ibudai.validate.core.annotation.trigger.Range;
+import xyz.ibudai.validate.core.annotation.Range;
 import xyz.ibudai.validate.core.handler.Checker;
 import xyz.ibudai.validate.core.util.ExceptionUtils;
 import xyz.ibudai.validate.core.util.ExpressionUtils;
@@ -50,7 +48,9 @@ public class RangeChecker implements Checker {
         if (!Number.class.isAssignableFrom(field.getType())) {
             return null;
         }
-        if (!field.isAnnotationPresent(Range.class) && !field.isAnnotationPresent(RangeGroup.class)) {
+        if (!field.isAnnotationPresent(Range.class)
+                && !field.isAnnotationPresent(Range.Group.class)
+        ) {
             return null;
         }
 

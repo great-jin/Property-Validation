@@ -3,7 +3,7 @@ package xyz.ibudai.validate.test.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import xyz.ibudai.validate.core.annotation.trigger.*;
+import xyz.ibudai.validate.core.annotation.*;
 
 import java.util.Date;
 import java.util.List;
